@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="t">
+  <title id="t">Raz Mobile screenshot placeholder</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="#0e1116"/>
+  <rect width="800" height="450" fill="url(#g)" opacity="0.14"/>
+  <g stroke="#ffffff" stroke-opacity="0.07">
+    <path d="M0 200 H800 M0 350 H800 M160 0 V450 M320 0 V450 M480 0 V450 M640 0 V450"/>
+  </g>
+  <rect x="70" y="70" width="660" height="310" rx="16" fill="#151a24" stroke="#ffffff" stroke-opacity="0.15"/>
+  <circle cx="98" cy="99" r="7" fill="#f87171"/><circle cx="122" cy="99" r="7" fill="#fbbf24"/><circle cx="146" cy="99" r="7" fill="#34d399"/>
+  <rect x="96" y="146" width="608" height="160" rx="12" fill="#1c2230" opacity="0.6"/>
+  <text x="400" y="280" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Raz Mobile</text>
+  <text x="400" y="312" text-anchor="middle" font-family="monospace" font-size="15" fill="#22d3ee">PROJECT SCREENSHOT PLACEHOLDER</text>
+  <text x="400" y="342" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#a2aabd">Replace this SVG in /public/images/projects/ with a real screenshot</text>
+</svg>
