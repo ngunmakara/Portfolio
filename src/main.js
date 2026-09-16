@@ -23,7 +23,7 @@ import km from '@/locales/km'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'aos/dist/aos.css'
-import '@/assets/css/main.css'
+import '@/assets/main.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 // Read the saved language before i18n is created so the first

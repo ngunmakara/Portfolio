@@ -5,9 +5,11 @@ import { siteConfig } from '@/data/siteConfig'
 import { useTyping } from '@/composables/useTyping'
 import SocialLinks from '@/components/ui/SocialLinks.vue'
 
+// Import the image directly from src/assets
+import profileImg from '@/assets/img/ngun-makara.jpg'
+
 const { locale, tm } = useI18n()
 const { typed, restart } = useTyping(tm('hero.typingWords'))
-
 
 watch(locale, () => restart(tm('hero.typingWords')))
 </script>
@@ -51,8 +53,9 @@ watch(locale, () => restart(tm('hero.typingWords')))
         <div class="col-lg-5 d-none d-lg-block" data-aos="zoom-in" data-aos-delay="200">
           <div class="profile-wrap">
             <div class="profile-frame">
+              <!-- Use the imported profileImg variable here -->
               <img
-                :src="siteConfig.profileImage"
+                :src="profileImg"
                 :alt="$t('hero.profileAlt')"
               />
             </div>

@@ -13,29 +13,28 @@ export const siteConfig = {
   expectedGraduation: 2028,
   // Numbers shown in the home stats. Labels come from the locales.
   stats: [
+    { value: 10, suffix: '+' },
     { value: 5, suffix: '+' },
     { value: 5, suffix: '+' },
-    { value: 2, suffix: '+' },
     { value: 2028, suffix: '' },
   ],
   // Contact details (email/phone are the same in both languages).
   contact: {
-    email: 'your-email@example.com',
-    phone: '+855 000 000 000',
+    email: 'ngunmakara009@gmail.com',
+    phone: '+855 866 772 12',
   },
   // Links shown in the navbar, hero and footer.
-  // Replace the example URLs below with your real profiles.
   socials: [
     {
       id: 'github',
       label: 'GitHub',
-      url: 'https://github.com/your-github-username',
+      url: 'https://github.com/ngunmakara',
       icon: 'bi-github',
     },
     {
       id: 'facebook',
       label: 'Facebook',
-      url: 'https://facebook.com/your-facebook-username',
+      url: 'https://web.facebook.com/RazJay009',
       icon: 'bi-facebook',
     },
     {
@@ -52,9 +51,9 @@ export const siteConfig = {
     },
   ],
   // -----------------------------------------------------------
-  // PLACEHOLDERS — replace these with your real files/links
+  // ASSET PATHS (pointing to the public folder)
   // -----------------------------------------------------------
-  cvUrl: '/files/NGUN_MAKARA_CV.pdf', // TODO: add your CV PDF to /public/files/ and keep this path
-  githubProfileUrl: 'https://github.com/your-github-username', // TODO: replace (used by "GitHub" sections)
-  profileImage: '/images/profile-placeholder.svg', // TODO: replace with your real photo in /public/images/
+  cvUrl: '/Ngun Makara.pdf',              // Your CV PDF located in public folder
+  githubProfileUrl: 'https://github.com/ngunmakara', // Used by GitHub sections
+  profileImage: '/images/ngun-makara.jpg', // Your profile photo located in public/images folder
 }
