@@ -51,7 +51,7 @@ export default {
     eyebrow: 'Junior Frontend Developer · Open to opportunities',
     tagline: 'I am an IT student passionate about web development and building modern web applications.',
     cleanCode: 'Clean code always',
-    profileAlt: 'Profile photo of Ngun Makara — placeholder, replace in /public/images',
+    profileAlt: 'Profile photo of Ngun Makara',
     typingWords: ['Junior Frontend Developer', 'Vue.js Enthusiast', 'Web Developer in Training'],
   },
 

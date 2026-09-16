@@ -53,7 +53,7 @@ export const siteConfig = {
   // -----------------------------------------------------------
   // ASSET PATHS (pointing to the public folder)
   // -----------------------------------------------------------
-  cvUrl: '/Ngun Makara.pdf',              // Your CV PDF located in public folder
+  cvUrl: '/ngun-makara-cv.pdf', // Your CV PDF in public folder
   githubProfileUrl: 'https://github.com/ngunmakara', // Used by GitHub sections
-  profileImage: '/images/ngun-makara.jpg', // Your profile photo located in public/images folder
+  profileImage: '/images/ngun-makara.jpg', // Your profile photo in public/images folder
 }

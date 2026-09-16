@@ -51,7 +51,7 @@ export default {
     eyebrow: 'អ្នកអភិវឌ្ឍន៍ Frontend កម្រិត Junior · កំពុងស្វែងរកឱកាស',
     tagline: 'ខ្ញុំជានិស្សិត IT និងជាអ្នកអភិវឌ្ឍន៍ដែលចូលចិត្តបង្កើត Web Application ទំនើបៗ។',
     cleanCode: 'កូដស្អាតជានិច្ច',
-    profileAlt: 'រូបភាពរបស់ ងុន មករា — placeholder សូមជំនួសក្នុង /public/images',
+    profileAlt: 'រូបភាពរបស់ ងុន មករា',
     typingWords: ['អ្នកអភិវឌ្ឍន៍ Frontend Junior', 'អ្នកគាំទ្រ Vue.js', 'អ្នកអភិវឌ្ឍន៍ Web កំពុងរៀន'],
   },
 

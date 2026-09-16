@@ -35,7 +35,6 @@ function isActive(route, to) {
 }
 
 function closeMenu() {
-  // Close the Bootstrap mobile collapse after clicking a link.
   const el = collapseEl.value
   if (el) {
     const instance = window.bootstrap?.Collapse?.getInstance(el)
@@ -62,28 +61,9 @@ onBeforeUnmount(() => {
       </router-link>
 
       <div class="d-flex align-items-center gap-2 order-lg-3">
-        <a
-          class="btn-icon-sm"
-          :href="githubUrl"
-          target="_blank"
-          rel="noopener"
-          aria-label="Open my GitHub profile"
-          title="GitHub"
-        >
-          <i class="bi bi-github"></i>
-        </a>
-        <a
-          class="btn-icon-sm"
-          :href="siteConfig.cvUrl"
-          download
-          aria-label="Download my CV"
-          title="Download CV"
-        >
-          <i class="bi bi-file-earmark-arrow-down"></i>
-        </a>
-        <LanguageSwitcher />
+        <LanguageSwitcher class="d-none d-md-inline-flex" />
         <button
-          class="btn-icon-sm border-0"
+          class="btn-icon-sm border-0 d-none d-md-inline-flex"
           type="button"
           :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
           :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
@@ -117,10 +97,46 @@ onBeforeUnmount(() => {
             </router-link>
           </li>
         </ul>
-        <div class="nav-cta d-flex justify-content-center">
+
+        <!-- Desktop-only: GitHub + Download CV -->
+        <div class="navbar-desktop-actions d-none d-lg-flex align-items-center gap-2">
+          <a
+            class="btn-icon-sm"
+            :href="githubUrl"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open my GitHub profile"
+            title="GitHub"
+          >
+            <i class="bi bi-github"></i>
+          </a>
           <a class="btn btn-accent btn-sm" :href="siteConfig.cvUrl" download>
             <i class="bi bi-download me-1"></i>{{ $t('btn.downloadCv') }}
           </a>
+        </div>
+
+        <!-- Mobile-only: GitHub, CV, theme shown inside the menu -->
+        <div class="navbar-mobile-actions d-lg-none d-flex flex-column gap-2 mt-3">
+          <a class="btn btn-outline-accent w-100" :href="githubUrl" target="_blank" rel="noopener">
+            <i class="bi bi-github me-2"></i>{{ $t('btn.openMyGithub') }}
+          </a>
+          <a class="btn btn-accent w-100" :href="siteConfig.cvUrl" download>
+            <i class="bi bi-download me-1"></i>{{ $t('btn.downloadCv') }}
+          </a>
+          <div class="d-flex gap-2">
+            <button
+              class="btn-icon-sm border-0 flex-fill"
+              type="button"
+              :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
+              @click="toggleTheme"
+            >
+              <i :class="theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars'"></i>
+            </button>
+            <div class="flex-fill d-flex justify-content-center align-items-center border rounded-lang-wrap">
+              <LanguageSwitcher />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -131,5 +147,15 @@ onBeforeUnmount(() => {
 .navbar-app .nav-cta .btn-accent {
   padding: 9px 18px;
   font-size: 0.9rem;
+}
+
+.rounded-lang-wrap {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  min-height: 42px;
+}
+.rounded-lang-wrap .btn-icon-sm {
+  border: none;
+  background: transparent;
 }
 </style>

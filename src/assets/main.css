@@ -1216,3 +1216,183 @@ a:hover {
     transition-duration: 0.001s !important;
   }
 }
+
+/* ============================================================
+   RESPONSIVE / MOBILE
+   ============================================================ */
+
+@media (max-width: 991.98px) {
+  /* Tighten section spacing on smaller screens */
+  .section {
+    padding: 56px 0;
+  }
+
+  /* Shorter hero so the fold fits below the navbar on phones */
+  .hero {
+    min-height: auto;
+    padding: 118px 0 56px;
+  }
+
+  .page-header {
+    padding: 118px 0 44px;
+  }
+
+  /* Timeline: keep single-column spacing tidy */
+  .timeline-item {
+    margin-bottom: 28px;
+  }
+
+  /* Contact info cards: keep readable on mobile */
+  .contact-info-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+  }
+
+  .page-title {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+  }
+
+  /* Hero name scales with viewport */
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .hero-role {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .hero-bio {
+    font-size: 0.98rem;
+  }
+
+  /* Buttons in the hero should fill nicely on narrow screens */
+  .hero .btn {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Cards: slightly softer padding on phones */
+  .app-card {
+    border-radius: 14px;
+  }
+
+  .service-card,
+  .testimonial-card {
+    padding: 24px 20px;
+  }
+
+  /* Page header subtitle */
+  .page-sub {
+    font-size: 0.98rem;
+  }
+
+  /* Stats: keep 2-column grid compact */
+  .stat-value {
+    font-size: 1.9rem;
+  }
+
+  /* Education cards stack icon above content */
+  .icon-badge {
+    width: 46px;
+    height: 46px;
+    font-size: 1.2rem;
+  }
+
+  /* Profile float badge should not overflow the card */
+  .profile-float {
+    right: -6px;
+    bottom: 16px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  /* Contact form buttons */
+  .btn-accent,
+  .btn-outline-accent {
+    padding: 11px 18px;
+    font-size: 0.92rem;
+  }
+
+  /* Footer links centered, a bit tighter */
+  .footer-links {
+    gap: 6px 14px;
+    font-size: 0.88rem;
+  }
+  .footer-app {
+    padding: 36px 0 20px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Single-column everything by default; keep gutters small */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  /* Full-width action buttons stack nicely */
+  .hero .btn,
+  .btn-accent.w-100,
+  .btn-outline-accent {
+    width: 100%;
+  }
+  .hero .d-flex.gap-3 {
+    gap: 10px !important;
+  }
+
+  /* Timeline dots a touch smaller on tiny screens */
+  .timeline-dot {
+    width: 36px;
+    height: 36px;
+  }
+  .timeline-item {
+    padding-left: 54px;
+  }
+
+  /* Cert thumbs */
+  .cert-body {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 359.98px) {
+  /* 320px class — catch extreme narrow screens */
+  .navbar-brand {
+    font-size: 1.05rem;
+  }
+  .navbar-brand .brand-mark {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.85rem;
+    margin-right: 6px;
+  }
+  .brand-mark {
+    display: inline-block;
+  }
+  .hero-greeting {
+    font-size: 0.95rem;
+  }
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+  }
+}
