@@ -28,6 +28,8 @@ const errors = reactive({
 
 const submitted = ref(false)
 const touched = ref(false)
+const sending = ref(false)
+const errorMessage = ref('')
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -53,15 +55,39 @@ function hasErrors() {
   return Object.values(errors).some((error) => error !== '')
 }
 
-function handleSubmit() {
-  // All validation is client-side. The form does NOT send an actual
-  // email — that requires a backend service or a form service.
-  // For now we just show a success message.
+async function handleSubmit() {
   touched.value = true
   validateAll()
 
   if (hasErrors()) return
-  submitted.value = true
+
+  // The bot token NEVER touches the frontend. The form payload is
+  // sent to a serverless proxy (Cloudflare Worker) that injects the
+  // token server-side and posts the message to Telegram.
+  errorMessage.value = ''
+  sending.value = true
+
+  try {
+    const response = await fetch(siteConfig.telegramProxyUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+      }),
+    })
+
+    if (!response.ok) throw new Error('Telegram proxy request failed')
+
+    submitted.value = true
+    Object.assign(form, { name: '', email: '', subject: '', message: '' })
+  } catch {
+    errorMessage.value = t('contact.formError')
+  } finally {
+    sending.value = false
+  }
 }
 
 function resetForm() {
@@ -69,6 +95,7 @@ function resetForm() {
   Object.assign(errors, { name: '', email: '', subject: '', message: '' })
   submitted.value = false
   touched.value = false
+  errorMessage.value = ''
 }
 </script>
 
@@ -188,9 +215,21 @@ function resetForm() {
             </div>
 
             <div class="col-12">
-              <button class="btn btn-accent w-100" type="submit">
-                <i class="bi bi-send me-1"></i>{{ $t('btn.send') }}
+              <button class="btn btn-accent w-100" type="submit" :disabled="sending">
+                <span
+                  v-if="sending"
+                  class="spinner-border spinner-border-sm me-1"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                <i v-else class="bi bi-send me-1"></i>{{ sending ? $t('contact.formSending') : $t('btn.send') }}
               </button>
+
+              <div v-if="errorMessage" class="form-error d-flex align-items-center gap-2 mt-3" role="alert">
+                <i class="bi bi-exclamation-circle-fill"></i>
+                <span>{{ errorMessage }}</span>
+              </div>
+
               <p class="text-muted mt-3 mb-0" style="font-size: 0.8rem">
                 <i class="bi bi-info-circle me-1"></i>
                 {{ $t('contact.formNote') }}

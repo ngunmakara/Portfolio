@@ -24,9 +24,9 @@ export const projects = [
     slug: 'food-express',
     category: ['vue', 'frontend'],
     tags: ['Vue 3', 'Bootstrap 5', 'Vue Router', 'JavaScript'],
-    image: '/images/projects/food-express.svg',
-    github: 'https://github.com/ngunmakara/Food-Express.git', // TODO: replace link
-    liveDemo: '', // TODO: add your live demo link, e.g. "https://food-express.vercel.app"
+    image: '/images/food-express.png',
+    github: 'https://github.com/ngunmakara/Food-Express', // TODO: replace link
+    liveDemo: 'https://ngunmakara.github.io/Food-Express/', // TODO: add your live demo link, e.g. "https://food-express.vercel.app"
     screenshots: ['/images/projects/food-express.svg', '/images/projects/food-express.svg'],
   },
   {
@@ -34,9 +34,9 @@ export const projects = [
     slug: 'trip-vol-vol',
     category: ['vue', 'frontend'],
     tags: ['Vue 3', 'Bootstrap 5', 'Vue Router', 'JavaScript'],
-    image: '/images/projects/trip-vol-vol.svg',
+    image: '/images/tripvolvol.jpg',
     github: 'https://github.com/ngunmakara/Trip-vol-vol-Spring-Boot.git', // TODO: add your GitHub URL
-    liveDemo: '', // TODO: add your live demo link
+    liveDemo: 'https://ngunmakara.github.io/Trip-vol-vol-Spring-Boot/', // TODO: add your live demo link
     screenshots: ['/images/projects/trip-vol-vol.svg'],
   },
   {
