@@ -8,11 +8,18 @@ defineProps({
     type: String,
     default: '#6366f1',
   },
+  compact: {
+    type: Boolean,
+    default: false,
+  },
 })
 </script>
 
 <template>
-  <div class="app-card app-card-hover skill-card" data-aos="fade-up">
+  <div
+    :class="['skill-card', compact ? 'skill-card--compact' : 'app-card app-card-hover']"
+    :data-aos="compact ? undefined : 'fade-up'"
+  >
     <div class="skill-name">
       <span>{{ skill.name }}</span>
       <span class="skill-level">{{ skill.level }}%</span>

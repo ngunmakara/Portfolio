@@ -40,9 +40,3 @@ const renderedTitle = computed(() => highlightTitle(props.title, props.highlight
     <p v-if="subtitle" class="section-sub">{{ subtitle }}</p>
   </div>
 </template>
-
-<style scoped>
-.section-header.text-start {
-  margin-bottom: 40px;
-}
-</style>

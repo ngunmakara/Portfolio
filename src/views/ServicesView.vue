@@ -22,7 +22,7 @@ const localizedServices = computed(() =>
       :subtitle="$t('services.subtitle')"
     />
 
-    <section class="section" style="padding-top: 40px">
+    <section class="section section-tight-top">
       <div class="container">
         <div class="row g-4">
           <div

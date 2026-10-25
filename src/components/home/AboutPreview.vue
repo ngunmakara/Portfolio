@@ -13,63 +13,61 @@ const journey = computed(() => tm('about.journey'))
 const journeyTitleHtml = computed(() =>
   highlightTitle(t('about.developerJourneyTitle'), t('about.developerJourneyTitleHighlight'))
 )
+
+const facts = computed(() => [
+  { label: t('about.infoRole'), value: t('about.role'), icon: 'bi-code-slash' },
+  { label: t('about.infoMajor'), value: t('about.major'), icon: 'bi-cpu' },
+  { label: t('about.infoUniversity'), value: t('about.university'), icon: 'bi-mortarboard' },
+  { label: t('about.infoGraduation'), value: String(siteConfig.expectedGraduation), icon: 'bi-calendar-event' },
+])
 </script>
 
 <template>
   <section class="section section-alt">
     <div class="container">
-      <SectionTitle tag="About" :title="$t('about.title')" :highlight="$t('about.titleHighlight')" />
+      <SectionTitle tag="About" :title="$t('about.title')" :highlight="$t('about.titleHighlight')" :subtitle="$t('about.subtitle')" />
 
-      <div class="row g-4 align-items-center">
+      <div class="row g-4 g-lg-5 align-items-center">
         <div class="col-lg-6" data-aos="fade-right">
-          <p v-for="paragraph in paragraphs" :key="paragraph" class="text-secondary mb-3">
-            {{ paragraph }}
-          </p>
-          <ul class="list-unstyled d-grid gap-2 mb-4">
-            <li>
-              <strong class="me-1">{{ $t('about.infoRole') }}:</strong>
-              <span class="text-secondary">{{ $t('about.role') }}</span>
-            </li>
-            <li>
-              <strong class="me-1">{{ $t('about.infoMajor') }}:</strong>
-              <span class="text-secondary">{{ $t('about.major') }}</span>
-            </li>
-            <li>
-              <strong class="me-1">{{ $t('about.infoUniversity') }}:</strong>
-              <span class="text-secondary">{{ $t('about.university') }}</span>
-            </li>
-            <li>
-              <strong class="me-1">{{ $t('about.infoGraduation') }}:</strong>
-              <span class="text-secondary">{{ siteConfig.expectedGraduation }}</span>
+          <div class="about-copy">
+            <p v-for="paragraph in paragraphs" :key="paragraph">
+              {{ paragraph }}
+            </p>
+          </div>
+
+          <ul class="about-facts">
+            <li v-for="fact in facts" :key="fact.label" class="fact-item">
+              <i :class="`bi ${fact.icon}`" aria-hidden="true"></i>
+              <span>
+                {{ fact.label }}
+                <strong>{{ fact.value }}</strong>
+              </span>
             </li>
           </ul>
-          <div class="d-flex flex-wrap gap-3 align-items-center">
+
+          <div class="about-actions">
             <router-link class="btn btn-accent" to="/about">
-              <i class="bi bi-person me-1"></i>{{ $t('btn.moreAboutMe') }}
+              <i class="bi bi-person"></i>{{ $t('btn.moreAboutMe') }}
             </router-link>
             <SocialLinks />
           </div>
         </div>
+
         <div class="col-lg-6" data-aos="fade-left">
-          <div class="app-card p-4">
-            <h3 class="mb-3" style="font-size: 1.25rem">
-              <i class="bi bi-compass me-2" style="color: var(--brand-a)"></i><span v-html="journeyTitleHtml"></span>
+          <div class="app-card journey-card">
+            <h3 class="journey-title">
+              <span class="icon-badge" aria-hidden="true"><i class="bi bi-compass"></i></span>
+              <span v-html="journeyTitleHtml"></span>
             </h3>
-            <ul class="list-unstyled d-grid gap-3 mb-0">
-              <li
-                v-for="(step, index) in journey"
-                :key="step.title"
-                class="d-flex gap-3"
-              >
-                <span class="icon-badge" style="width: 38px; height: 38px; font-size: 0.95rem">
-                  {{ index + 1 }}
-                </span>
-                <span>
-                  <strong class="d-block">{{ step.title }}</strong>
-                  <span class="text-secondary">{{ step.text }}</span>
-                </span>
+            <ol class="journey-list">
+              <li v-for="(step, index) in journey" :key="step.title" class="journey-step">
+                <span class="journey-step-number" aria-hidden="true">{{ String(index + 1).padStart(2, '0') }}</span>
+                <div>
+                  <strong>{{ step.title }}</strong>
+                  <p>{{ step.text }}</p>
+                </div>
               </li>
-            </ul>
+            </ol>
           </div>
         </div>
       </div>

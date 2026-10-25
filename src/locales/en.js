@@ -12,6 +12,10 @@ export default {
     contact: 'Contact',
   },
 
+  a11y: {
+    skipToContent: 'Skip to content',
+  },
+
   // ── BUTTONS / COMMON ──────────────────────────────────────────
   btn: {
     downloadCv: 'Download CV',
@@ -426,13 +430,13 @@ export default {
     infoEmail: 'Email',
     infoPhone: 'Phone',
     infoLocation: 'Location',
-    email: 'ngunmakara009@gmail.com',
+    email: "ngunmakara009{'@'}gmail.com",
     phone: '+855 866 772 12',
     location: 'Phnom Penh, Cambodia',
     formName: 'Name',
     formNamePlaceholder: 'Your name',
     formEmail: 'Email',
-    formEmailPlaceholder: 'you@example.com',
+    formEmailPlaceholder: "you{'@'}example.com",
     formSubject: 'Subject',
     formSubjectPlaceholder: "What's this about?",
     formMessage: 'Message',

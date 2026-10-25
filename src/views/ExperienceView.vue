@@ -22,7 +22,7 @@ const localizedItems = computed(() =>
       :subtitle="$t('experience.subtitle')"
     />
 
-    <section class="section" style="padding-top: 40px">
+    <section class="section section-tight-top">
       <div class="container">
         <SectionTitle
           :tag="$t('experience.timelineTag')"

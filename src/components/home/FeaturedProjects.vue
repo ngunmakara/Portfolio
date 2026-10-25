@@ -27,8 +27,8 @@ const featuredProjects = computed(() =>
       />
 
       <div class="row g-4">
-        <div v-for="(project, index) in featuredProjects" :key="project.id" class="col-md-6 col-lg-4">
-          <ProjectCard :project="project" :data-aos-delay="index * 100" />
+        <div v-for="(project, index) in featuredProjects" :key="project.id" class="col-md-6 col-xxl-4">
+          <ProjectCard :project="project" :data-aos-delay="index * 80" />
         </div>
       </div>
 

@@ -12,7 +12,7 @@ import ContactForm from '@/components/ContactForm.vue'
       :subtitle="$t('contact.subtitle')"
     />
 
-    <section class="section" style="padding-top: 40px">
+    <section class="section section-tight-top">
       <div class="container">
         <ContactForm />
       </div>

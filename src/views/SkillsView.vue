@@ -33,36 +33,30 @@ const localizedCategories = computed(() =>
       :subtitle="$t('skills.subtitle')"
     />
 
-    <section class="section" style="padding-top: 40px">
+    <section class="section section-tight-top">
       <div class="container">
-        <div class="d-grid gap-5">
-          <div v-for="(category, catIndex) in localizedCategories" :key="category.id">
-            <div class="d-flex align-items-center gap-3 mb-4" data-aos="fade-up">
-              <span
-                class="icon-badge"
-                :style="{ color: category.color, background: 'color-mix(in srgb, ' + category.color + ' 14%, transparent)' }"
-              >
-                <i :class="`bi ${category.icon}`"></i>
-              </span>
-              <div>
-                <h2 class="mb-1" style="font-size: 1.5rem">{{ category.title }}</h2>
-                <p class="mb-0 text-secondary" style="font-size: 0.9rem">{{ category.description }}</p>
-              </div>
+        <div v-for="category in localizedCategories" :key="category.id" class="category-block">
+          <div class="category-head" data-aos="fade-up">
+            <span
+              class="icon-badge"
+              :style="{ color: category.color, background: 'color-mix(in srgb, ' + category.color + ' 13%, transparent)', borderColor: 'color-mix(in srgb, ' + category.color + ' 26%, transparent)' }"
+            >
+              <i :class="`bi ${category.icon}`"></i>
+            </span>
+            <div>
+              <h2>{{ category.title }}</h2>
+              <p>{{ category.description }}</p>
             </div>
+          </div>
 
-            <div class="row g-4">
-              <div
-                v-for="(skill, index) in category.skills"
-                :key="skill.name"
-                class="col-md-6 col-lg-4"
-              >
-                <SkillCard
-                  :skill="skill"
-                  :color="category.color"
-                  :data-aos-delay="index * 60"
-                />
-              </div>
-            </div>
+          <div class="category-skills">
+            <SkillCard
+              v-for="(skill, index) in category.skills"
+              :key="skill.name"
+              :skill="skill"
+              :color="category.color"
+              :data-aos-delay="index * 50"
+            />
           </div>
         </div>
       </div>

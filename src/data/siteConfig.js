@@ -23,13 +23,10 @@ export const siteConfig = {
     email: 'ngunmakara009@gmail.com',
     phone: '+855 866 772 12',
   },
-  // Cloudflare Worker that forwards contact form messages to Telegram.
-  // The Telegram bot token lives ONLY in the Worker's environment
-  // variables (server-side) — never exposed to the browser.
-  // Replace with the URL you get after deploying the Worker.
-  telegramProxyUrl:
-    import.meta.env.VITE_TELEGRAM_PROXY_URL ||
-    'https://portfolio-telegram-proxy.<YOUR_SUBDOMAIN>.workers.dev',
+  // Vercel serverless function that forwards contact form messages to
+  // Telegram. The bot token lives ONLY in Vercel environment variables
+  // (server-side) — never exposed to the browser.
+  telegramProxyUrl: import.meta.env.VITE_TELEGRAM_PROXY_URL || '/api/contact',
   // Links shown in the navbar, hero and footer.
   socials: [
     {

@@ -18,7 +18,7 @@ const initials = computed(() => {
 
 <template>
   <article class="app-card app-card-hover testimonial-card h-100" data-aos="fade-up">
-    <i class="bi bi-quote" style="font-size: 2.2rem; color: var(--brand-a)"></i>
+    <i class="bi bi-quote testimonial-mark" aria-hidden="true"></i>
     <p class="testimonial-quote">“{{ testimonial.text }}”</p>
     <div class="testimonial-person">
       <span class="testimonial-avatar" aria-hidden="true">{{ initials }}</span>

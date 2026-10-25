@@ -24,7 +24,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'aos/dist/aos.css'
 import '@/assets/main.css'
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import * as bootstrap from 'bootstrap'
+
+window.bootstrap = bootstrap
 
 // Read the saved language before i18n is created so the first
 // render already uses the correct locale (avoids a flash).

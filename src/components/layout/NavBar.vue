@@ -7,15 +7,15 @@ import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 const { theme, toggleTheme } = useTheme()
 
 const navLinks = [
-  { key: 'home', to: '/' },
-  { key: 'about', to: '/about' },
-  { key: 'skills', to: '/skills' },
-  { key: 'projects', to: '/projects' },
-  { key: 'experience', to: '/experience' },
-  { key: 'education', to: '/education' },
-  { key: 'certificates', to: '/certificates' },
-  { key: 'services', to: '/services' },
-  { key: 'contact', to: '/contact' },
+  { key: 'home', to: '/', icon: 'bi-house' },
+  { key: 'about', to: '/about', icon: 'bi-person' },
+  { key: 'skills', to: '/skills', icon: 'bi-stars' },
+  { key: 'projects', to: '/projects', icon: 'bi-folder2-open' },
+  { key: 'experience', to: '/experience', icon: 'bi-briefcase' },
+  { key: 'education', to: '/education', icon: 'bi-mortarboard' },
+  { key: 'certificates', to: '/certificates', icon: 'bi-award' },
+  { key: 'services', to: '/services', icon: 'bi-layers' },
+  { key: 'contact', to: '/contact', icon: 'bi-envelope' },
 ]
 
 const githubUrl = computed(
@@ -42,28 +42,35 @@ function closeMenu() {
   }
 }
 
+function onKeydown(event) {
+  if (event.key === 'Escape') closeMenu()
+}
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('keydown', onKeydown)
   onScroll()
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('keydown', onKeydown)
 })
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg fixed-top navbar-app" :class="{ scrolled }">
+  <nav class="navbar navbar-expand-xl fixed-top navbar-app" :class="{ scrolled }">
     <div class="container">
       <router-link class="navbar-brand" to="/" @click="closeMenu">
-        <span class="brand-mark">&#123;&#125;</span>{{ $t('hero.firstName') }}
-        <span class="text-gradient">{{ $t('hero.lastName') }}</span>
+        <span class="brand-mark" aria-hidden="true">&#123;&#125;</span>
+        <span>{{ $t('hero.firstName') }}</span>
+        <span class="text-gradient ms-1">{{ $t('hero.lastName') }}</span>
       </router-link>
 
-      <div class="d-flex align-items-center gap-2 order-lg-3">
-        <LanguageSwitcher class="d-none d-md-inline-flex" />
+      <div class="d-flex align-items-center gap-2 ms-auto order-xl-3">
+        <LanguageSwitcher class="d-none d-sm-inline-flex" />
         <button
-          class="btn-icon-sm border-0 d-none d-md-inline-flex"
+          class="btn-icon-sm"
           type="button"
           :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
           :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
@@ -72,7 +79,7 @@ onBeforeUnmount(() => {
           <i :class="theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars'"></i>
         </button>
         <button
-          class="navbar-toggler d-lg-none"
+          class="navbar-toggler d-xl-none"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#mainNavbar"
@@ -84,22 +91,23 @@ onBeforeUnmount(() => {
         </button>
       </div>
 
-      <div id="mainNavbar" ref="collapseEl" class="collapse navbar-collapse order-lg-2">
-        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+      <div id="mainNavbar" ref="collapseEl" class="collapse navbar-collapse order-xl-2">
+        <ul class="navbar-nav mx-auto mb-0">
           <li class="nav-item" v-for="link in navLinks" :key="link.to">
             <router-link
               class="nav-link"
               :class="{ active: isActive($route, link.to) }"
               :to="link.to"
+              :aria-current="isActive($route, link.to) ? 'page' : undefined"
               @click="closeMenu"
             >
+              <i :class="`bi ${link.icon} nav-icon`" aria-hidden="true"></i>
               {{ $t(`nav.${link.key}`) }}
             </router-link>
           </li>
         </ul>
 
-        <!-- Desktop-only: GitHub + Download CV -->
-        <div class="navbar-desktop-actions d-none d-lg-flex align-items-center gap-2">
+        <div class="nav-cta align-items-center d-none d-xl-flex d-xl-flex-row">
           <a
             class="btn-icon-sm"
             :href="githubUrl"
@@ -111,51 +119,22 @@ onBeforeUnmount(() => {
             <i class="bi bi-github"></i>
           </a>
           <a class="btn btn-accent btn-sm" :href="siteConfig.cvUrl" download>
-            <i class="bi bi-download me-1"></i>{{ $t('btn.downloadCv') }}
+            <i class="bi bi-download"></i>{{ $t('btn.downloadCv') }}
           </a>
         </div>
 
-        <!-- Mobile-only: GitHub, CV, theme shown inside the menu -->
-        <div class="navbar-mobile-actions d-lg-none d-flex flex-column gap-2 mt-3">
-          <a class="btn btn-outline-accent w-100" :href="githubUrl" target="_blank" rel="noopener">
-            <i class="bi bi-github me-2"></i>{{ $t('btn.openMyGithub') }}
+        <div class="navbar-mobile-actions d-xl-none">
+          <a class="btn btn-outline-accent" :href="githubUrl" target="_blank" rel="noopener">
+            <i class="bi bi-github"></i>{{ $t('btn.openMyGithub') }}
           </a>
-          <a class="btn btn-accent w-100" :href="siteConfig.cvUrl" download>
-            <i class="bi bi-download me-1"></i>{{ $t('btn.downloadCv') }}
+          <a class="btn btn-accent mt-2" :href="siteConfig.cvUrl" download>
+            <i class="bi bi-download"></i>{{ $t('btn.downloadCv') }}
           </a>
-          <div class="d-flex gap-2">
-            <button
-              class="btn-icon-sm border-0 flex-fill"
-              type="button"
-              :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
-              :title="theme === 'dark' ? 'Light mode' : 'Dark mode'"
-              @click="toggleTheme"
-            >
-              <i :class="theme === 'dark' ? 'bi bi-sun' : 'bi bi-moon-stars'"></i>
-            </button>
-            <div class="flex-fill d-flex justify-content-center align-items-center border rounded-lang-wrap">
-              <LanguageSwitcher />
-            </div>
+          <div class="navbar-mobile-lang d-sm-none mt-2">
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
     </div>
   </nav>
 </template>
-
-<style scoped>
-.navbar-app .nav-cta .btn-accent {
-  padding: 9px 18px;
-  font-size: 0.9rem;
-}
-
-.rounded-lang-wrap {
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  min-height: 42px;
-}
-.rounded-lang-wrap .btn-icon-sm {
-  border: none;
-  background: transparent;
-}
-</style>

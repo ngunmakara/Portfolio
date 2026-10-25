@@ -7,7 +7,6 @@ import SkillCard from '@/components/cards/SkillCard.vue'
 
 const { tm } = useI18n()
 
-// Merge translated category names/descriptions + skill details.
 const localizedCategories = computed(() =>
   skillCategories.map((category) => {
     const cat = tm(`skills.categories.${category.id}`)
@@ -33,25 +32,32 @@ const localizedCategories = computed(() =>
         <div
           v-for="(category, catIndex) in localizedCategories"
           :key="category.id"
-          class="col-md-6 col-lg-3"
+          class="col-sm-6 col-xl-3"
         >
-          <div class="app-card app-card-hover h-100 p-4" data-aos="fade-up" :data-aos-delay="catIndex * 100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="icon-badge" :style="{ color: category.color, background: 'color-mix(in srgb, ' + category.color + ' 14%, transparent)' }">
+          <div class="app-card app-card-hover skill-category-card" data-aos="fade-up" :data-aos-delay="catIndex * 80">
+            <div class="skill-category-head">
+              <span
+                class="icon-badge"
+                :style="{ color: category.color, background: 'color-mix(in srgb, ' + category.color + ' 13%, transparent)', borderColor: 'color-mix(in srgb, ' + category.color + ' 26%, transparent)' }"
+              >
                 <i :class="`bi ${category.icon}`"></i>
               </span>
-              <h3 class="mb-0" style="font-size: 1.1rem">{{ category.title }}</h3>
+              <h3>{{ category.title }}</h3>
+              <span class="skill-category-count">{{ category.skills.length }}</span>
             </div>
-            <div class="d-grid gap-3">
+
+            <div class="skill-list">
               <SkillCard
                 v-for="skill in category.skills.slice(0, 3)"
                 :key="skill.name"
                 :skill="skill"
                 :color="category.color"
+                compact
               />
             </div>
-            <router-link to="/skills" class="btn btn-ghost btn-sm w-100 mt-3">
-              {{ $t('btn.viewAllSkills') }} <i class="bi bi-arrow-right ms-1"></i>
+
+            <router-link to="/skills" class="btn btn-ghost btn-sm">
+              {{ $t('btn.viewAllSkills') }} <i class="bi bi-arrow-right"></i>
             </router-link>
           </div>
         </div>

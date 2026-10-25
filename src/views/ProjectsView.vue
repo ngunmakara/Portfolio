@@ -34,11 +34,10 @@ function setCategory(category) {
       :subtitle="$t('projects.subtitle')"
     />
 
-    <section class="section" style="padding-top: 40px">
+    <section class="section section-tight-top">
       <div class="container">
-        <!-- Category filter -->
         <div
-          class="d-flex flex-wrap justify-content-center gap-2 mb-5"
+          class="filter-bar"
           role="group"
           aria-label="Filter projects by category"
           data-aos="fade-up"
@@ -56,18 +55,17 @@ function setCategory(category) {
           </button>
         </div>
 
-        <!-- Projects grid -->
         <div class="row g-4">
           <div
             v-for="(project, index) in filteredProjects"
             :key="project.id"
-            class="col-md-6 col-lg-4"
+            class="col-md-6 col-xxl-4"
           >
             <ProjectCard :project="project" :data-aos-delay="index * 80" />
           </div>
         </div>
 
-        <p v-if="!filteredProjects.length" class="text-center text-muted mt-4">
+        <p v-if="!filteredProjects.length" class="empty-state">
           {{ $t('projects.empty') }}
         </p>
       </div>

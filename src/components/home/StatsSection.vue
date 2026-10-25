@@ -5,34 +5,36 @@ import { siteConfig } from '@/data/siteConfig'
 
 const { t } = useI18n()
 
-// Number/suffix come from siteConfig, labels are translated.
 const statLabelKeys = ['stats.projects', 'stats.technologies', 'stats.certificates', 'stats.graduation']
+const statIcons = ['bi-folder2-open', 'bi-stack', 'bi-award', 'bi-mortarboard']
 
 const stats = computed(() =>
   siteConfig.stats.map((stat, index) => ({
     ...stat,
+    icon: statIcons[index],
     label: t(statLabelKeys[index]),
   }))
 )
 </script>
 
 <template>
-  <section class="section" style="padding-top: 0">
+  <section class="section stats-section">
     <div class="container">
-      <div class="row g-4">
+      <div class="stats-grid">
         <div
           v-for="(stat, index) in stats"
           :key="stat.label"
-          class="col-6 col-lg-3"
+          class="app-card app-card-hover stat-card"
           data-aos="fade-up"
-          :data-aos-delay="index * 100"
+          :data-aos-delay="index * 80"
         >
-          <div class="app-card stat-card">
-            <div class="stat-value">
-              {{ stat.value }}<span>{{ stat.suffix }}</span>
-            </div>
-            <div class="stat-label">{{ stat.label }}</div>
+          <span class="stat-icon" aria-hidden="true">
+            <i :class="`bi ${stat.icon}`"></i>
+          </span>
+          <div class="stat-value">
+            {{ stat.value }}<span>{{ stat.suffix }}</span>
           </div>
+          <div class="stat-label">{{ stat.label }}</div>
         </div>
       </div>
     </div>

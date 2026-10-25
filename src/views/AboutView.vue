@@ -31,27 +31,24 @@ const futureGoals = computed(() => tm('about.futureGoals'))
       :subtitle="$t('about.subtitle')"
     />
 
-    <!-- Introduction + basic info -->
-    <section class="section" style="padding-top: 40px">
+    <section class="section section-tight-top">
       <div class="container">
-        <div class="row g-4">
+        <div class="row g-4 g-lg-5">
           <div class="col-lg-6" data-aos="fade-right">
             <SectionTitle
               align="left"
               :tag="$t('about.introTag')"
               :title="$t('about.introTitle')"
             />
-            <p
-              v-for="paragraph in paragraphs"
-              :key="paragraph"
-              class="text-secondary mb-3"
-            >
-              {{ paragraph }}
-            </p>
+            <div class="about-copy">
+              <p v-for="paragraph in paragraphs" :key="paragraph">
+                {{ paragraph }}
+              </p>
+            </div>
 
-            <div class="d-flex flex-wrap align-items-center gap-3">
+            <div class="about-actions">
               <a class="btn btn-accent" :href="siteConfig.cvUrl" download>
-                <i class="bi bi-download me-1"></i>{{ $t('btn.downloadCv') }}
+                <i class="bi bi-download"></i>{{ $t('btn.downloadCv') }}
               </a>
               <SocialLinks />
             </div>
@@ -59,18 +56,14 @@ const futureGoals = computed(() => tm('about.futureGoals'))
 
           <div class="col-lg-6" data-aos="fade-left">
             <div class="row g-3">
-              <div
-                v-for="card in infoCards"
-                :key="card.label"
-                class="col-sm-6"
-              >
-                <div class="app-card app-card-hover contact-info-card p-3">
-                  <span class="icon-badge">
+              <div v-for="card in infoCards" :key="card.label" class="col-sm-6">
+                <div class="app-card app-card-hover contact-info-card">
+                  <span class="icon-badge" aria-hidden="true">
                     <i :class="`bi ${card.icon}`"></i>
                   </span>
                   <div>
                     <p class="contact-info-label mb-0">{{ card.label }}</p>
-                    <p class="contact-info-value mb-0" style="font-size: 0.92rem">{{ card.value }}</p>
+                    <p class="contact-info-value mb-0">{{ card.value }}</p>
                   </div>
                 </div>
               </div>
@@ -80,7 +73,6 @@ const futureGoals = computed(() => tm('about.futureGoals'))
       </div>
     </section>
 
-    <!-- Developer journey timeline -->
     <section class="section section-alt">
       <div class="container">
         <SectionTitle
@@ -89,22 +81,22 @@ const futureGoals = computed(() => tm('about.futureGoals'))
           :highlight="$t('about.developerJourneyTitleHighlight')"
         />
         <div class="row justify-content-center">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <ul class="timeline">
               <li
                 v-for="(step, index) in journey"
-                :key="index"
+                :key="step.title"
                 class="timeline-item"
                 data-aos="fade-up"
               >
                 <span class="timeline-dot" aria-hidden="true">
-                  <span class="mono" style="font-size: 0.8rem">{{ index + 1 }}</span>
+                  <span class="mono">{{ index + 1 }}</span>
                 </span>
-                <span class="timeline-period">Step {{ String(index + 1).padStart(2, '0') }}</span>
-                <h3 class="timeline-title" style="font-size: 1.05rem">
-                  {{ step.title }}
-                </h3>
-                <p class="timeline-desc mb-0">{{ step.text }}</p>
+                <div class="timeline-card">
+                  <span class="timeline-period">{{ String(index + 1).padStart(2, '0') }}</span>
+                  <h3 class="timeline-title">{{ step.title }}</h3>
+                  <p class="timeline-desc mb-0">{{ step.text }}</p>
+                </div>
               </li>
             </ul>
           </div>
@@ -112,41 +104,38 @@ const futureGoals = computed(() => tm('about.futureGoals'))
       </div>
     </section>
 
-    <!-- Goals section -->
     <section class="section">
       <div class="container">
         <div class="row g-4">
           <div class="col-lg-6" data-aos="fade-right">
-            <div class="app-card app-card-hover p-4 h-100">
-              <h3 class="mb-3" style="font-size: 1.25rem">
-                <i class="bi bi-bullseye me-2" style="color: var(--brand-a)"></i>{{ $t('about.careerGoalsTitle') }}
+            <div class="app-card app-card-hover about-goal-card h-100">
+              <h3 class="about-goal-title">
+                <i class="bi bi-bullseye" aria-hidden="true"></i>{{ $t('about.careerGoalsTitle') }}
               </h3>
-              <p class="text-secondary mb-0">{{ $t('about.careerGoals') }}</p>
+              <p>{{ $t('about.careerGoals') }}</p>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-left">
-            <div class="app-card app-card-hover p-4 h-100">
-              <h3 class="mb-3" style="font-size: 1.25rem">
-                <i class="bi bi-book me-2" style="color: var(--brand-a)"></i>{{ $t('about.currentLearningTitle') }}
+            <div class="app-card app-card-hover about-goal-card h-100">
+              <h3 class="about-goal-title">
+                <i class="bi bi-book" aria-hidden="true"></i>{{ $t('about.currentLearningTitle') }}
               </h3>
-              <p class="text-secondary mb-0">{{ $t('about.currentLearning') }}</p>
+              <p>{{ $t('about.currentLearning') }}</p>
             </div>
           </div>
 
           <div class="col-12" data-aos="fade-up">
-            <div class="app-card app-card-hover p-4">
-              <h3 class="mb-3" style="font-size: 1.25rem">
-                <i class="bi bi-rocket-takeoff me-2" style="color: var(--brand-a)"></i>{{ $t('about.futureGoalsTitle') }}
+            <div class="app-card app-card-hover about-goal-card">
+              <h3 class="about-goal-title">
+                <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>{{ $t('about.futureGoalsTitle') }}
               </h3>
-              <div class="row g-3">
-                <div class="col-md-6" v-for="(goal, index) in futureGoals" :key="index">
-                  <div class="d-flex gap-3 align-items-start">
-                    <i class="bi bi-check-circle-fill" style="color: var(--brand-a)"></i>
-                    <span class="text-secondary">{{ goal }}</span>
-                  </div>
-                </div>
-              </div>
+              <ul class="goal-list">
+                <li v-for="goal in futureGoals" :key="goal">
+                  <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                  <span>{{ goal }}</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

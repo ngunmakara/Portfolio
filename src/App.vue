@@ -11,7 +11,7 @@ import ScrollProgress from '@/components/layout/ScrollProgress.vue'
 import BackToTop from '@/components/layout/BackToTop.vue'
 
 const route = useRoute()
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 const loading = ref(true)
 
 let hideTimer = null
@@ -49,17 +49,18 @@ watch(locale, async () => {
 
 <template>
   <div class="app-shell">
+    <a class="skip-link" href="#main-content">{{ t('a11y.skipToContent') }}</a>
     <AppLoader :loading="loading" />
     <ScrollProgress />
     <NavBar />
 
-    <main class="app-main">
+    <div id="main-content" class="app-main" tabindex="-1">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" :key="route.fullPath" />
         </transition>
       </router-view>
-    </main>
+    </div>
 
     <Footer />
     <BackToTop />

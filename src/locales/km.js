@@ -12,6 +12,10 @@ export default {
     contact: 'ទំនាក់ទំនង',
   },
 
+  a11y: {
+    skipToContent: 'រំលងទៅមាតិកា',
+  },
+
   // ── BUTTONS / COMMON ──────────────────────────────────────────
   btn: {
     downloadCv: 'ទាញយក CV',
@@ -426,13 +430,13 @@ export default {
     infoEmail: 'Email',
     infoPhone: 'ទូរស័ព្ទ',
     infoLocation: 'ទីតាំង',
-    email: 'your-email@example.com',
+    email: "your-email{'@'}example.com",
     phone: '+855 000 000 000',
     location: 'ភ្នំពេញ កម្ពុជា',
     formName: 'ឈ្មោះ',
     formNamePlaceholder: 'ឈ្មោះរបស់អ្នក',
     formEmail: 'Email',
-    formEmailPlaceholder: 'you@example.com',
+    formEmailPlaceholder: "you{'@'}example.com",
     formSubject: 'ប្រធានបទ',
     formSubjectPlaceholder: 'នេះអំពីអ្វី?',
     formMessage: 'សារ',

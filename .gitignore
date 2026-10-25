@@ -9,6 +9,10 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
+.dev.vars
+.env
+.env.*
+.wrangler
 dist
 dist-ssr
 coverage
@@ -37,3 +41,8 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+.vercel
+
+.vercel
+.env*

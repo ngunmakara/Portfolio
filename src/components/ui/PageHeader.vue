@@ -30,8 +30,8 @@ const renderedTitle = computed(() => highlightTitle(props.title, props.highlight
     <div class="bg-grid"></div>
     <div class="container">
       <p class="breadcrumb-app mb-2" data-aos="fade-down">
-        <router-link to="/" class="text-decoration-none">{{ $t('nav.home') }}</router-link>
-        <i class="bi bi-chevron-right mx-1" style="font-size: 0.7rem"></i>{{ tag }}
+        <router-link to="/">{{ $t('nav.home') }}</router-link>
+        <i class="bi bi-chevron-right breadcrumb-sep" aria-hidden="true"></i>{{ tag }}
       </p>
       <h1 class="page-title" data-aos="fade-up" v-html="renderedTitle"></h1>
       <p v-if="subtitle" class="page-sub" data-aos="fade-up" data-aos-delay="120">{{ subtitle }}</p>
