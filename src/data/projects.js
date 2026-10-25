@@ -44,30 +44,30 @@ export const projects = [
     slug: 'restaurant-management-system',
     category: ['vue', 'springboot', 'backend'],
     tags: ['Vue 3', 'Spring Boot', 'MySQL', 'REST API', 'Postman'],
-    image: '/images/projects/restaurant-management-system.svg',
+    image: '/images/restaurant-management-system.png',
     github: 'https://github.com/NalenSrin123/G2_2_Sun_MPOS_front.git', // TODO: replace link
     liveDemo: '', // TODO: add your live demo link
-    screenshots: ['/images/projects/restaurant-management-system.svg'],
+    screenshots: ['/images/restaurant-management-system.png'],
   },
   {
     id: 4,
     slug: 'raz-mobile',
     category: ['frontend'],
     tags: ['HTML', 'CSS', 'Bootstrap 5', 'JavaScript'],
-    image: '/images/projects/raz-mobile.svg',
+    image: '/images/raz-mobile.png',
     github: 'https://github.com/ngunmakara/flagship-phone-store.git', // TODO: add your GitHub URL
     liveDemo: '', // TODO: add your live demo link
-    screenshots: ['/images/projects/raz-mobile.svg'],
+    screenshots: ['/images/raz-mobile.png'],
   },
   {
     id: 5,
-    slug: 'employee-management-api',
+    slug: 'library-book-management',
     category: ['backend', 'java', 'springboot'],
     tags: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'Postman', 'Swagger'],
-    image: '/images/projects/employee-management-api.svg',
+    image: '/images/library-book-management.png',
     github: 'https://github.com/ngunmakara/Library-Book-Management.git', // TODO: replace link
     liveDemo: '', // no live demo — it is an API, not a website
-    screenshots: ['/images/projects/employee-management-api.svg'],
+    screenshots: ['/images/library-book-management.png'],
   },
 ]
 

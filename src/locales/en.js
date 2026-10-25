@@ -247,12 +247,13 @@ export default {
         challenges: 'This project taught me to plan a layout before writing code and to re-use utility classes instead of repeating CSS.',
         lessons: 'Responsive grids, realistic CSS practice, and keeping JavaScript small and readable.',
       },
-      'employee-management-api': {
-        title: 'Employee Management API',
-        shortDescription: 'REST API built with Spring Boot and MySQL for managing employee records.',
-        overview: 'A backend-only project: a Spring Boot REST API that lets clients create, read, update and delete employee records. It stores data in MySQL and is tested with Postman, with Swagger docs exposed in the development environment.',
+      'library-book-management': {
+        title: 'Library Book Management',
+        shortDescription: 'Library management system built with Java and Spring Boot, backed by MySQL.',
+        overview: 'A library management project built with Java and Spring Boot. It lets staff manage books, members and borrowing records through REST endpoints, with data stored in MySQL and the API tested with Postman.',
         features: [
-          'REST endpoints for employee CRUD operations',
+          'REST endpoints for book CRUD operations',
+          'Member and borrowing record management',
           'MySQL database with JPA repositories',
           'Validation on request bodies',
           'Swagger UI for API documentation during development',
