@@ -985,44 +985,8 @@ svg {
 
 .profile-wrap {
   position: relative;
-  width: min(100%, 392px);
+  width: min(100%, 460px);
   margin: 0 auto;
-  padding: 18px;
-}
-
-.profile-wrap::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1px dashed var(--brand-border);
-  border-radius: calc(var(--radius-lg) + 10px);
-  transform: rotate(-3deg);
-  pointer-events: none;
-}
-
-.profile-frame {
-  position: relative;
-  padding: 7px;
-  border-radius: var(--radius-lg);
-  background: var(--brand-gradient);
-  box-shadow: var(--shadow-lg);
-  transform: rotate(2deg);
-  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-.profile-wrap:hover .profile-frame {
-  transform: rotate(0deg);
-}
-
-.profile-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  border-radius: calc(var(--radius-lg) - 7px);
-  background: var(--surface-alt);
-  object-fit: cover;
-  object-position: center top;
 }
 
 .profile-badge {
@@ -3023,7 +2987,7 @@ textarea.form-control {
   }
 
   .profile-wrap {
-    width: min(100%, 360px);
+    width: min(100%, 420px);
   }
 
   .footer-grid {
@@ -3130,8 +3094,7 @@ textarea.form-control {
   }
 
   .profile-wrap {
-    width: min(100%, 330px);
-    padding: 14px;
+    width: min(100%, 340px);
   }
 
   .profile-badge {
@@ -3312,7 +3275,7 @@ textarea.form-control {
   }
 
   .profile-wrap {
-    width: min(100%, 300px);
+    width: min(100%, 340px);
   }
 
   .stats-grid {

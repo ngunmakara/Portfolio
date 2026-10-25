@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { siteConfig } from '@/data/siteConfig'
 import { useTyping } from '@/composables/useTyping'
 import SocialLinks from '@/components/ui/SocialLinks.vue'
+import ProfileOrbit from '@/components/ui/ProfileOrbit.vue'
 
 const { locale, tm } = useI18n()
 const { typed, restart } = useTyping(tm('hero.typingWords'))
@@ -15,7 +16,7 @@ watch(locale, () => restart(tm('hero.typingWords')))
   <section class="hero">
     <div class="container">
       <div class="row align-items-center g-4 g-lg-5">
-        <div class="col-lg-7">
+        <div class="col-lg-6 col-xl-7">
           <div class="hero-eyebrow" data-aos="fade-down">
             <span class="dot" aria-hidden="true"></span>{{ $t('hero.eyebrow') }}
           </div>
@@ -54,18 +55,9 @@ watch(locale, () => restart(tm('hero.typingWords')))
           </div>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-6 col-xl-5">
           <div class="profile-wrap" data-aos="zoom-in" data-aos-delay="180">
-            <div class="profile-frame">
-              <img
-                :src="siteConfig.profileImage"
-                :alt="$t('hero.profileAlt')"
-                width="1068"
-                height="1473"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </div>
+            <ProfileOrbit :image="siteConfig.profileImage" :alt="$t('hero.profileAlt')" />
             <div class="profile-badge profile-badge--top">
               <i class="bi bi-code-slash" aria-hidden="true"></i>
               <span>{{ $t('hero.cleanCode') }}</span>
