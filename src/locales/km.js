@@ -140,6 +140,7 @@ export default {
         description: 'មូលដ្ឋាននៃ server-side development។',
         skills: {
           java: { detail: 'Core Java, OOP, collections' },
+          cpp: { detail: 'Syntax, OOP basics, memory basics' },
           springboot: { detail: 'REST APIs, controllers, services' },
         },
       },

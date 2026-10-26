@@ -29,6 +29,7 @@ export const skillCategories = [
     color: '#22d3ee',
     skills: [
       { id: 'java', name: 'Java', level: 60 },
+      { id: 'cpp', name: 'C/C++', level: 80 },
       { id: 'springboot', name: 'Spring Boot', level: 55 },
     ],
   },
