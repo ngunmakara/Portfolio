@@ -404,6 +404,16 @@ export default {
         description: 'Translating designs and ideas into pixel-consistent, accessible interfaces with attention to spacing and detail.',
         features: ['Consistent design system', 'Hover & motion effects', 'Accessible markup'],
       },
+      6: {
+        title: 'Database Management',
+        description: 'Designing simple MySQL schemas, writing queries and connecting database data to web applications.',
+        features: ['MySQL schema design', 'CRUD queries', 'Data backup basics'],
+      },
+      7: {
+        title: 'Website Maintenance',
+        description: 'Updating, fixing and improving existing websites — keeping content fresh, layouts consistent and small bugs fixed.',
+        features: ['Content & layout updates', 'Bug fixes & small tweaks', 'Performance checks'],
+      },
     },
   },
 

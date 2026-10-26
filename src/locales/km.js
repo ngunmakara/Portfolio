@@ -404,6 +404,16 @@ export default {
         description: 'បំលែង designs និងគំនិតទៅជា interfaces pixel-consistent, accessible។',
         features: ['Consistent design system', 'Hover & motion effects', 'Accessible markup'],
       },
+      6: {
+        title: 'Database Management',
+        description: 'រចនា MySQL schema សាមញ្ញ សរសេរ queries និងភ្ជាប់ data ពី database ទៅ web applications។',
+        features: ['MySQL schema design', 'CRUD queries', 'Data backup basics'],
+      },
+      7: {
+        title: 'Website Maintenance',
+        description: 'ធ្វើបច្ចុប្បន្នភាព ជួសជុល និងកែលម្អ websites ដែលមានស្រាប់ — រក្សា content ថ្មី និងដោះស្រាយ bugs តូចៗ។',
+        features: ['Content & layout updates', 'Bug fixes & small tweaks', 'Performance checks'],
+      },
     },
   },
 

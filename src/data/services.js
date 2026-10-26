@@ -13,4 +13,6 @@ export const services = [
   { id: 3, icon: 'bi-layers' },
   { id: 4, icon: 'bi-plug' },
   { id: 5, icon: 'bi-palette' },
+  { id: 6, icon: 'bi-database' },
+  { id: 7, icon: 'bi-tools' },
 ]
