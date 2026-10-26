@@ -15,4 +15,6 @@ export const services = [
   { id: 5, icon: 'bi-palette' },
   { id: 6, icon: 'bi-database' },
   { id: 7, icon: 'bi-tools' },
+  { id: 8, icon: 'bi-window' },
+  { id: 9, icon: 'bi-arrow-repeat' },
 ]

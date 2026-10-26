@@ -414,6 +414,16 @@ export default {
         description: 'ធ្វើបច្ចុប្បន្នភាព ជួសជុល និងកែលម្អ websites ដែលមានស្រាប់ — រក្សា content ថ្មី និងដោះស្រាយ bugs តូចៗ។',
         features: ['Content & layout updates', 'Bug fixes & small tweaks', 'Performance checks'],
       },
+      8: {
+        title: 'Landing Page Development',
+        description: 'បង្កើត landing pages ដែលផ្តោតលើគោលដៅ និងផ្ទុកលឿន ដើម្បីបង្ហាញអ្វីដែលអ្នកផ្តល់ជូន និងណែនាំអ្នកទស្សនាឱ្យធ្វើសកម្មភាព។',
+        features: ['Clear call-to-action sections', 'Fast, lightweight pages', 'Mobile-friendly design'],
+      },
+      9: {
+        title: 'Website Redesign',
+        description: 'ផ្តល់រូបរាងថ្មី ទំនើបដល់ websites ដែលមានស្រាប់ ដោយរក្សា content និងរចនាសម្ព័ន្ធដែលអ្នកប្រើស្គាល់។',
+        features: ['Modern visual refresh', 'Improved layout & spacing', 'Smoother navigation'],
+      },
     },
   },
 

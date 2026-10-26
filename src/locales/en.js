@@ -414,6 +414,16 @@ export default {
         description: 'Updating, fixing and improving existing websites — keeping content fresh, layouts consistent and small bugs fixed.',
         features: ['Content & layout updates', 'Bug fixes & small tweaks', 'Performance checks'],
       },
+      8: {
+        title: 'Landing Page Development',
+        description: 'Building focused, fast-loading landing pages that present an offer clearly and guide visitors to take action.',
+        features: ['Clear call-to-action sections', 'Fast, lightweight pages', 'Mobile-friendly design'],
+      },
+      9: {
+        title: 'Website Redesign',
+        description: 'Giving existing websites a fresh, modern look while keeping the content and structure users already know.',
+        features: ['Modern visual refresh', 'Improved layout & spacing', 'Smoother navigation'],
+      },
     },
   },
 
