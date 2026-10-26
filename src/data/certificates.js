@@ -26,9 +26,34 @@ export const certificates = [
     date: '2026',
     image: '/images/certificates/certificate-placeholder.svg',
   },
+  {
+    id: 3,
+    date: '2025',
+    image: '/images/certificates/certificate-placeholder.svg',
+  },
+  {
+    id: 4,
+    date: '2025',
+    image: '/images/certificates/certificate-placeholder.svg',
+  },
+  {
+    id: 5,
+    date: '2024',
+    image: '/images/certificates/certificate-placeholder.svg',
+  },
+  {
+    id: 6,
+    date: '2024',
+    image: '/images/certificates/certificate-placeholder.svg',
+  },
+  {
+    id: 7,
+    date: '2023',
+    image: '/images/certificates/certificate-placeholder.svg',
+  },
   // How to add more certificates — copy the block below:
   // {
-  //   id: 3,
+  //   id: 8,
   //   date: '2026',
   //   image: '/images/certificates/my-cert.png',
   // },

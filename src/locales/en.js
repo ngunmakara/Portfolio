@@ -345,6 +345,26 @@ export default {
         name: 'Certificate Name Two — replace me',
         organization: 'Organization / Course Provider — replace me',
       },
+      3: {
+        name: 'Certificate Name Three — replace me',
+        organization: 'Organization / Course Provider — replace me',
+      },
+      4: {
+        name: 'Certificate Name Four — replace me',
+        organization: 'Organization / Course Provider — replace me',
+      },
+      5: {
+        name: 'Certificate Name Five — replace me',
+        organization: 'Organization / Course Provider — replace me',
+      },
+      6: {
+        name: 'Certificate Name Six — replace me',
+        organization: 'Organization / Course Provider — replace me',
+      },
+      7: {
+        name: 'Certificate Name Seven — replace me',
+        organization: 'Organization / Course Provider — replace me',
+      },
     },
   },
 
