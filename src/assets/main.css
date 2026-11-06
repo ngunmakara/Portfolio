@@ -44,9 +44,21 @@
   --bs-body-bg: var(--body-bg);
   --bs-body-color: var(--text-primary);
   --bs-border-color: var(--border-color);
-  --bs-body-font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --bs-link-color: var(--brand-a);
   --bs-link-hover-color: var(--brand-b);
+
+  /* Typography System */
+  --font-en: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-kh-primary: 'Kantumruy Pro', 'Noto Sans Khmer', sans-serif;
+  --font-kh-secondary: 'Noto Sans Khmer', sans-serif;
+
+  /* Default base font stacks (Inter for English, Kantumruy Pro primary Khmer, Noto Sans Khmer secondary) */
+  --font-body: 'Inter', 'Kantumruy Pro', 'Noto Sans Khmer', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Inter', 'Kantumruy Pro', 'Noto Sans Khmer', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Kantumruy Pro', 'Noto Sans Khmer', monospace;
+
+  --bs-body-font-family: var(--font-body);
+  --bs-btn-font-family: var(--font-body);
 }
 
 [data-bs-theme='dark'] {
@@ -134,8 +146,9 @@ body {
     radial-gradient(ellipse 46% 38% at 50% 112%, var(--glow-c), transparent 70%);
   background-attachment: fixed;
   color: var(--text-primary);
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
+  font-weight: 400;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -152,9 +165,9 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.18;
+  line-height: 1.24;
   letter-spacing: -0.025em;
   color: var(--text-primary);
 }
@@ -229,10 +242,14 @@ svg {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  display: inline-block;
+  padding-block: 0.06em 0.12em;
+  margin-block: -0.06em -0.12em;
+  vertical-align: top;
 }
 
 .mono {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono);
 }
 
 .text-balance {
@@ -289,11 +306,12 @@ svg {
   border-radius: var(--radius-pill);
   background: var(--brand-soft);
   color: var(--brand-a);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.09em;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1.35;
 }
 
 .section-tag::before {
@@ -307,8 +325,10 @@ svg {
 
 .section-title {
   margin-bottom: 14px;
+  font-family: var(--font-heading);
   font-size: clamp(1.9rem, 4.2vw, 2.85rem);
-  line-height: 1.08;
+  font-weight: 700;
+  line-height: 1.18;
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
@@ -317,7 +337,8 @@ svg {
   max-width: 620px;
   margin: 0 auto;
   color: var(--text-secondary);
-  font-size: 1.02rem;
+  font-size: clamp(0.96rem, 1.8vw, 1.04rem);
+  font-weight: 400;
   line-height: 1.75;
 }
 
@@ -335,7 +356,7 @@ svg {
 }
 
 .btn {
-  --bs-btn-font-family: 'Inter', system-ui, sans-serif;
+  --bs-btn-font-family: var(--font-body);
   --bs-btn-font-size: 0.95rem;
   --bs-btn-font-weight: 600;
   display: inline-flex;
@@ -345,7 +366,9 @@ svg {
   min-height: 46px;
   padding: 11px 22px;
   border-radius: var(--radius-sm);
-  line-height: 1.25;
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.35;
   text-align: center;
   white-space: nowrap;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
@@ -525,7 +548,7 @@ svg {
   align-items: center;
   margin-right: 22px;
   color: var(--text-primary) !important;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.24rem;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -542,7 +565,7 @@ svg {
   border-radius: 11px;
   background: var(--brand-gradient);
   color: #fff;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: -0.08em;
@@ -551,12 +574,13 @@ svg {
 
 .navbar-app .nav-link {
   position: relative;
-  padding: 8px 11px !important;
+  padding: 8px 12px !important;
   border-radius: var(--radius-xs);
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.3;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -568,6 +592,7 @@ svg {
 .navbar-app .nav-link.active {
   background: var(--brand-soft);
   color: var(--brand-a);
+  font-weight: 700;
 }
 
 .navbar-app .nav-link.active::after {
@@ -673,7 +698,10 @@ svg {
   padding: 9px 12px;
   border-radius: 8px;
   color: var(--text-secondary);
+  font-family: var(--font-body);
   font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .language-switcher .dropdown-item:hover,
@@ -685,6 +713,7 @@ svg {
 .language-switcher .dropdown-item.active {
   background: var(--brand-soft);
   color: var(--brand-a);
+  font-weight: 700;
 }
 
 .navbar-mobile-actions {
@@ -825,9 +854,9 @@ svg {
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--surface) 64%, transparent);
   color: var(--brand-a);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.01em;
   backdrop-filter: blur(10px);
 }
@@ -854,15 +883,17 @@ svg {
 .hero-greeting {
   margin-bottom: 2px;
   color: var(--text-muted);
-  font-size: 1.05rem;
+  font-size: clamp(0.98rem, 1.8vw, 1.08rem);
   font-weight: 500;
 }
 
 .hero-name {
   margin-bottom: 14px;
+  font-family: var(--font-heading);
   font-size: clamp(2.85rem, 6.4vw, 4.9rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
 }
 
 .hero-role {
@@ -872,8 +903,9 @@ svg {
   min-height: 2.1em;
   margin-bottom: 18px;
   color: var(--text-secondary);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: clamp(1.02rem, 2.3vw, 1.36rem);
+  font-weight: 500;
   line-height: 1.45;
 }
 
@@ -1057,18 +1089,19 @@ svg {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.9rem, 3.2vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.04em;
 }
 
 .stat-label {
   margin-top: 5px;
   color: var(--text-secondary);
-  font-size: 0.84rem;
-  line-height: 1.4;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.45;
 }
 
 .about-copy p {
@@ -1195,7 +1228,7 @@ svg {
   border-radius: 50%;
   background: var(--surface);
   color: var(--brand-a);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
 }
@@ -1245,8 +1278,9 @@ svg {
   border-radius: var(--radius-pill);
   background: var(--surface-alt);
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
+  font-weight: 600;
 }
 
 .skill-list {
@@ -1290,8 +1324,9 @@ svg {
 .skill-level {
   flex: 0 0 auto;
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1402,9 +1437,9 @@ svg {
   border-radius: var(--radius-pill);
   background: rgba(9, 13, 22, 0.55);
   color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
@@ -1444,8 +1479,10 @@ svg {
 
 .project-title {
   margin-bottom: 7px;
-  font-size: 1.13rem;
-  line-height: 1.3;
+  font-family: var(--font-heading);
+  font-size: clamp(1.08rem, 1.8vw, 1.22rem);
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .project-title a {
@@ -1557,8 +1594,8 @@ svg {
   display: inline-block;
   margin-bottom: 4px;
   color: var(--brand-a);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1566,7 +1603,10 @@ svg {
 
 .timeline-title {
   margin: 0 0 3px;
-  font-size: 1.12rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.8vw, 1.15rem);
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .timeline-place {
@@ -1638,16 +1678,19 @@ svg {
   gap: 5px;
   margin-bottom: 8px;
   color: var(--brand-a);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .cert-name {
   margin-bottom: 6px;
-  font-size: 1.02rem;
-  line-height: 1.4;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.8vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .cert-org {
@@ -1707,7 +1750,10 @@ svg {
 
 .service-title {
   margin-bottom: 8px;
-  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.8vw, 1.15rem);
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .service-desc {
@@ -1863,9 +1909,11 @@ svg {
 .page-title {
   max-width: 900px;
   margin: 0 auto 14px;
+  font-family: var(--font-heading);
   font-size: clamp(2.15rem, 5.2vw, 3.35rem);
-  line-height: 1.06;
-  letter-spacing: -0.045em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
   overflow-wrap: anywhere;
 }
 
@@ -1873,7 +1921,8 @@ svg {
   max-width: 650px;
   margin: 0 auto;
   color: var(--text-secondary);
-  font-size: 1.02rem;
+  font-size: clamp(0.96rem, 1.8vw, 1.04rem);
+  font-weight: 400;
   line-height: 1.75;
 }
 
@@ -1890,8 +1939,9 @@ svg {
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--surface) 70%, transparent);
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
   overflow-wrap: anywhere;
   backdrop-filter: blur(8px);
 }
@@ -1916,7 +1966,10 @@ svg {
 
 .contact-heading {
   margin-bottom: 8px;
+  font-family: var(--font-heading);
   font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .contact-lead {
@@ -2156,7 +2209,10 @@ textarea.form-control {
   max-width: 720px;
   margin: 0 auto 14px;
   color: #fff;
+  font-family: var(--font-heading);
   font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.035em;
 }
 
@@ -2237,7 +2293,7 @@ textarea.form-control {
 .github-handle {
   margin: 0;
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.76rem;
 }
 
@@ -2368,7 +2424,7 @@ textarea.form-control {
   min-height: 44px;
   margin-bottom: 10px;
   color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.035em;
@@ -2424,7 +2480,9 @@ textarea.form-control {
   align-items: center;
   min-height: 44px;
   color: var(--text-secondary);
-  font-size: 0.86rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .footer-links a:hover {
@@ -2440,7 +2498,8 @@ textarea.form-control {
 .footer-contact-heading {
   margin-bottom: 4px;
   color: var(--text-primary);
-  font-size: 0.78rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -2490,8 +2549,8 @@ textarea.form-control {
 .footer-built {
   margin: 0;
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
 }
 
 .loader-screen {
@@ -2513,7 +2572,7 @@ textarea.form-control {
 }
 
 .loader-logo {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 5vw, 2.3rem);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -2541,8 +2600,9 @@ textarea.form-control {
 
 .loader-text {
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -2612,9 +2672,9 @@ textarea.form-control {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(5.4rem, 19vw, 10rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   letter-spacing: -0.06em;
 }
@@ -2647,7 +2707,7 @@ textarea.form-control {
 .not-found-code {
   margin-top: 42px;
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
 }
 
@@ -2788,7 +2848,7 @@ textarea.form-control {
   border-radius: var(--radius-pill);
   background: var(--brand-soft);
   color: var(--brand-a);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
   white-space: nowrap;
@@ -3411,5 +3471,406 @@ textarea.form-control {
   .filter-btn {
     padding: 7px 13px;
     font-size: 0.78rem;
+  }
+}
+
+/* ============================================================
+   KHMER TYPOGRAPHY & RENDERING SYSTEM
+   Primary Khmer Font: Kantumruy Pro (modern, bold, elegant)
+   Secondary Khmer Font: Noto Sans Khmer (clean, comprehensive)
+   Latin/English Font: Inter
+   Code Font: JetBrains Mono
+   ============================================================ */
+
+html[lang='km'],
+:lang(km) {
+  --font-body: 'Kantumruy Pro', 'Noto Sans Khmer', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Kantumruy Pro', 'Noto Sans Khmer', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand: 'Kantumruy Pro', 'Noto Sans Khmer', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Kantumruy Pro', 'Noto Sans Khmer', monospace;
+
+  --bs-body-font-family: var(--font-body);
+  --bs-btn-font-family: var(--font-body);
+
+  line-height: 1.82;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+html[lang='km'] body,
+:lang(km) body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.82;
+  letter-spacing: normal;
+}
+
+/* Headings: bold weight 700 with generous line-height to ensure upper vowels & subscripts never clip */
+html[lang='km'] h1,
+html[lang='km'] h2,
+html[lang='km'] h3,
+html[lang='km'] h4,
+html[lang='km'] h5,
+html[lang='km'] h6,
+:lang(km) h1,
+:lang(km) h2,
+:lang(km) h3,
+:lang(km) h4,
+:lang(km) h5,
+:lang(km) h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.36;
+  letter-spacing: normal !important;
+}
+
+/* Hero Section in Khmer */
+html[lang='km'] .hero-greeting,
+:lang(km) .hero-greeting {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.5;
+}
+
+html[lang='km'] .hero-name,
+:lang(km) .hero-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: normal !important;
+}
+
+html[lang='km'] .hero-role,
+:lang(km) .hero-role {
+  font-family: var(--font-kh-primary) !important;
+  font-weight: 600;
+  letter-spacing: normal !important;
+  line-height: 1.5;
+}
+
+html[lang='km'] .hero-role .mono,
+:lang(km) .hero-role .mono {
+  font-family: var(--font-kh-primary) !important;
+  font-weight: 600;
+  letter-spacing: normal !important;
+}
+
+html[lang='km'] .hero-bio,
+:lang(km) .hero-bio {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: normal;
+}
+
+html[lang='km'] .hero-location,
+:lang(km) .hero-location {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+/* Section Title & Page Header in Khmer */
+html[lang='km'] .section-title,
+html[lang='km'] .page-title,
+:lang(km) .section-title,
+:lang(km) .page-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: normal !important;
+}
+
+html[lang='km'] .section-sub,
+html[lang='km'] .page-sub,
+:lang(km) .section-sub,
+:lang(km) .page-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.82;
+  letter-spacing: normal;
+}
+
+/* Navigation & Brand in Khmer */
+html[lang='km'] .navbar-brand,
+:lang(km) .navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: normal !important;
+}
+
+html[lang='km'] .navbar-app .nav-link,
+:lang(km) .navbar-app .nav-link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal !important;
+  line-height: 1.45;
+  padding-block: 9px !important;
+}
+
+html[lang='km'] .navbar-app .nav-link.active,
+:lang(km) .navbar-app .nav-link.active {
+  font-weight: 700;
+}
+
+/* Buttons in Khmer: weights 600–700 with vertical clearance */
+html[lang='km'] .btn,
+:lang(km) .btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal !important;
+  line-height: 1.45;
+  padding-block: 10px;
+}
+
+html[lang='km'] .btn-accent,
+:lang(km) .btn-accent {
+  font-weight: 700;
+}
+
+html[lang='km'] .btn-sm,
+:lang(km) .btn-sm {
+  padding-block: 8px;
+  line-height: 1.4;
+}
+
+html[lang='km'] .btn-card-icon,
+html[lang='km'] .filter-btn,
+:lang(km) .btn-card-icon,
+:lang(km) .filter-btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal !important;
+  line-height: 1.4;
+}
+
+/* Badges, Tags, Pills, and Meta in Khmer: no uppercase, normal letter-spacing */
+html[lang='km'] .section-tag,
+html[lang='km'] .hero-eyebrow,
+html[lang='km'] .availability-pill,
+html[lang='km'] .chip,
+html[lang='km'] .project-badge,
+html[lang='km'] .timeline-period,
+html[lang='km'] .cert-meta,
+html[lang='km'] .breadcrumb-app,
+html[lang='km'] .edu-period,
+html[lang='km'] .edu-gpa,
+:lang(km) .section-tag,
+:lang(km) .hero-eyebrow,
+:lang(km) .availability-pill,
+:lang(km) .chip,
+:lang(km) .project-badge,
+:lang(km) .timeline-period,
+:lang(km) .cert-meta,
+:lang(km) .breadcrumb-app,
+:lang(km) .edu-period,
+:lang(km) .edu-gpa {
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  line-height: 1.45;
+}
+
+/* Stats in Khmer */
+html[lang='km'] .stat-value,
+:lang(km) .stat-value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: normal !important;
+}
+
+html[lang='km'] .stat-label,
+:lang(km) .stat-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: normal;
+}
+
+/* Cards & Headings in Khmer */
+html[lang='km'] .project-title,
+html[lang='km'] .service-title,
+html[lang='km'] .timeline-title,
+html[lang='km'] .cert-name,
+html[lang='km'] .contact-heading,
+html[lang='km'] .footer-brand,
+html[lang='km'] .footer-contact-heading,
+html[lang='km'] .cta-panel h2,
+html[lang='km'] .skill-category-head h3,
+html[lang='km'] .journey-title,
+html[lang='km'] .category-head h2,
+:lang(km) .project-title,
+:lang(km) .service-title,
+:lang(km) .timeline-title,
+:lang(km) .cert-name,
+:lang(km) .contact-heading,
+:lang(km) .footer-brand,
+:lang(km) .footer-contact-heading,
+:lang(km) .cta-panel h2,
+:lang(km) .skill-category-head h3,
+:lang(km) .journey-title,
+:lang(km) .category-head h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: normal !important;
+}
+
+/* Body Text, Descriptions & Quotes in Khmer: 400–500 weight with readable line-height */
+html[lang='km'] p,
+html[lang='km'] .about-copy p,
+html[lang='km'] .project-desc,
+html[lang='km'] .service-desc,
+html[lang='km'] .timeline-desc,
+html[lang='km'] .skill-detail,
+html[lang='km'] .testimonial-quote,
+html[lang='km'] .contact-lead,
+html[lang='km'] .cta-panel p,
+html[lang='km'] .footer-tagline,
+html[lang='km'] .journey-step p,
+:lang(km) p,
+:lang(km) .about-copy p,
+:lang(km) .project-desc,
+:lang(km) .service-desc,
+:lang(km) .timeline-desc,
+:lang(km) .skill-detail,
+:lang(km) .testimonial-quote,
+:lang(km) .contact-lead,
+:lang(km) .cta-panel p,
+:lang(km) .footer-tagline,
+:lang(km) .journey-step p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.82;
+  letter-spacing: normal;
+}
+
+html[lang='km'] .service-features li,
+:lang(km) .service-features li {
+  font-family: var(--font-body);
+  font-weight: 450;
+  line-height: 1.65;
+}
+
+html[lang='km'] .skill-name,
+:lang(km) .skill-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+html[lang='km'] .fact-item,
+:lang(km) .fact-item {
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+/* Forms in Khmer */
+html[lang='km'] .form-label,
+:lang(km) .form-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal !important;
+  line-height: 1.45;
+}
+
+html[lang='km'] .form-control,
+html[lang='km'] .form-select,
+:lang(km) .form-control,
+:lang(km) .form-select {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+html[lang='km'] .form-control::placeholder,
+:lang(km) .form-control::placeholder {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+html[lang='km'] .invalid-feedback,
+html[lang='km'] .form-note,
+:lang(km) .invalid-feedback,
+:lang(km) .form-note {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.5;
+}
+
+/* Contact Info & Footer in Khmer */
+html[lang='km'] .contact-info-label,
+html[lang='km'] .contact-info-value,
+html[lang='km'] .footer-links a,
+html[lang='km'] .testimonial-name,
+:lang(km) .contact-info-label,
+:lang(km) .contact-info-value,
+:lang(km) .footer-links a,
+:lang(km) .testimonial-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: normal !important;
+  line-height: 1.45;
+}
+
+/* Loader & 404 in Khmer */
+html[lang='km'] .loader-logo,
+:lang(km) .loader-logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: normal !important;
+}
+
+html[lang='km'] .loader-text,
+:lang(km) .loader-text {
+  font-family: var(--font-kh-primary);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+/* Text Gradient Clipping Protection for Khmer diacritics and subscripts */
+html[lang='km'] .text-gradient,
+:lang(km) .text-gradient {
+  display: inline-block;
+  padding-block: 0.08em 0.16em;
+  margin-block: -0.08em -0.16em;
+  vertical-align: top;
+}
+
+/* Small Screens / Mobile Adjustments for Khmer */
+@media (max-width: 767.98px) {
+  html[lang='km'] body,
+  :lang(km) body {
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  html[lang='km'] .section-title,
+  :lang(km) .section-title {
+    line-height: 1.34;
+  }
+
+  html[lang='km'] .hero-name,
+  :lang(km) .hero-name {
+    line-height: 1.28;
+  }
+}
+
+@media (max-width: 575.98px) {
+  html[lang='km'] .hero-actions .btn,
+  :lang(km) .hero-actions .btn {
+    padding-block: 11px;
+    line-height: 1.45;
+  }
+
+  html[lang='km'] .hero-eyebrow,
+  :lang(km) .hero-eyebrow {
+    line-height: 1.45;
+    white-space: normal;
   }
 }
